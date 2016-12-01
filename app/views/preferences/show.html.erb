@@ -54,6 +54,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_user" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for gender -->
+      <div class="form-group">
+        <label for="gender" class="control-label">
+          Gender
+        </label>
+
+        <input type="text" id="gender" name="gender" placeholder="Gender" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for preferences_id -->
+      <div class="form-group">
+        <label for="preferences_id" class="control-label">
+          Preferences
+        </label>
+
+        <%= select_tag(:preferences_id, options_from_collection_for_select(Preference.all, :id, :taste), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for route_id -->
+      <div class="form-group">
+        <label for="route_id" class="control-label">
+          Route
+        </label>
+
+        <%= select_tag(:route_id, options_from_collection_for_select(Route.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create User
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +123,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_restaurant" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for preference_id -->
+      <input type="hidden" name="preference_id" value="<%= @preference.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Restaurant
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -116,6 +177,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_shop" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for preference_id -->
+      <input type="hidden" name="preference_id" value="<%= @preference.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Shop
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

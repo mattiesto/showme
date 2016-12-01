@@ -6,6 +6,7 @@ class RoutesController < ApplicationController
   end
 
   def show
+    @user = User.new
     @route = Route.find(params[:id])
 
     render("routes/show.html.erb")

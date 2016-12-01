@@ -6,6 +6,9 @@ class PreferencesController < ApplicationController
   end
 
   def show
+    @shop = Shop.new
+    @restaurant = Restaurant.new
+    @user = User.new
     @preference = Preference.find(params[:id])
 
     render("preferences/show.html.erb")
