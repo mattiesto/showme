@@ -33,7 +33,7 @@
           Preferences
         </label>
 
-        <input type="text" id="preferences_id" name="preferences_id" placeholder="Preferences" class="form-control" value="<%= @user.preferences_id %>">
+        <%= select_tag(:preferences_id, options_from_collection_for_select(Preference.all, :id, :taste, @user.preferences_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for route_id -->
