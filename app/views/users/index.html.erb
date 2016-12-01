@@ -18,7 +18,7 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= user.gender %></td>
-        <td><%= user.preferences_id %></td>
+        <td><%= user.preferences.taste %></td>
         <td><%= user.route_id %></td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
