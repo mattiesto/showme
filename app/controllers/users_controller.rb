@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(:distinct => true).includes(:routes, :preferences).page(params[:page]).per(10)
+    @users = @q.result(:distinct => true).includes(:preferences).page(params[:page]).per(10)
 
     render("users/index.html.erb")
   end
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
     @user.gender = params[:gender]
     @user.preferences_id = params[:preferences_id]
-    @user.route_id = params[:route_id]
 
     save_status = @user.save
 
@@ -52,7 +51,6 @@ class UsersController < ApplicationController
 
     @user.gender = params[:gender]
     @user.preferences_id = params[:preferences_id]
-    @user.route_id = params[:route_id]
 
     save_status = @user.save
 

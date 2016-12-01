@@ -17,15 +17,6 @@
         <% end %>
       </dd>
 
-      <dt>Route</dt>
-      <dd>
-        <% if @user.routes.present? %>
-          <a href="/routes/<%= @user.route_id %>">
-            <%= @user.routes.user_id %>
-          </a>
-        <% end %>
-      </dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
