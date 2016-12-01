@@ -9,10 +9,22 @@
       <dd><%= @user.gender %></dd>
 
       <dt>Preferences</dt>
-      <dd><%= @user.preferences_id %></dd>
+      <dd>
+        <% if @user.preferences.present? %>
+          <a href="/preferences/<%= @user.preferences_id %>">
+            <%= @user.preferences.taste %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Route</dt>
-      <dd><%= @user.route_id %></dd>
+      <dd>
+        <% if @user.routes.present? %>
+          <a href="/routes/<%= @user.route_id %>">
+            <%= @user.routes.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

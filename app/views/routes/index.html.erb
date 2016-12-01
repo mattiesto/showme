@@ -17,7 +17,13 @@
       <% @routes.each do |route| %>
       <tr>
         <td><%= route.user_id %></td>
-        <td><%= route.cities.created_at %></td>
+        <td>
+          <% if route.cities.present? %>
+            <a href="/cities/<%= route.cities.id %>">
+              <%= route.cities.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/routes/<%= route.id %>" class="btn btn-primary">Show</a>
           <a href="/routes/<%= route.id %>/edit" class="btn btn-warning">Edit</a>

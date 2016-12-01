@@ -9,7 +9,13 @@
       <dd><%= @route.user_id %></dd>
 
       <dt>Cities</dt>
-      <dd><%= @route.cities_id %></dd>
+      <dd>
+        <% if @route.cities.present? %>
+          <a href="/cities/<%= @route.cities_id %>">
+            <%= @route.cities.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

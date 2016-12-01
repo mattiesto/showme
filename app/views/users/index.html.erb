@@ -18,8 +18,20 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= user.gender %></td>
-        <td><%= user.preferences.taste %></td>
-        <td><%= user.routes.user_id %></td>
+        <td>
+          <% if user.preferences.present? %>
+            <a href="/preferences/<%= user.preferences.id %>">
+              <%= user.preferences.taste %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user.routes.present? %>
+            <a href="/routes/<%= user.routes.id %>">
+              <%= user.routes.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
           <a href="/users/<%= user.id %>/edit" class="btn btn-warning">Edit</a>
