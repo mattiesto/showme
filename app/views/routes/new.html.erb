@@ -33,7 +33,7 @@
           Cities
         </label>
 
-        <input type="text" id="cities_id" name="cities_id" placeholder="Cities" class="form-control" value="<%= @route.cities_id %>">
+        <%= select_tag(:cities_id, options_from_collection_for_select(City.all, :id, :created_at, @route.cities_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
