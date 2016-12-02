@@ -17,17 +17,17 @@
         <% end %>
       </dd>
 
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+
+      <dt>Password</dt>
+      <dd><%= @user.password %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/users" class="btn btn-primary">
         Back
-      </a>
-      <a href="/users/<%= @user.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_user/<%= @user.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
       </a>
     </div>
   </div>
