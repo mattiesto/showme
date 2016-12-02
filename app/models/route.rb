@@ -3,7 +3,8 @@ class Route < ApplicationRecord
 
   belongs_to :preference
 
-  belongs_to :cities
+  belongs_to :cities,
+             :foreign_key => "city_id"
 
   # Indirect associations
 

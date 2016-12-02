@@ -18,13 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for cities_id -->
+      <!-- Label and input for city_id -->
       <div class="form-group">
-        <label for="cities_id" class="control-label">
-          Cities
+        <label for="city_id" class="control-label">
+          City
         </label>
 
-        <%= select_tag(:cities_id, options_from_collection_for_select(City.all, :id, :created_at, @route.cities_id), :class => "form-control") %>
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :created_at, @route.city_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for preference_id -->

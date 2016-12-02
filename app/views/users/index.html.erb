@@ -9,7 +9,6 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Gender</th>
         <th>Preferences</th>
         <th>Email</th>
         <th>Password</th>
@@ -18,7 +17,6 @@
 
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.gender %></td>
         <td>
           <% if user.preferences.present? %>
             <a href="/preferences/<%= user.preferences.id %>">
