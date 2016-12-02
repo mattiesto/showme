@@ -33,7 +33,7 @@
       <% @city.routes.each do |route| %>
         <li class="list-group-item">
           <a href="/routes/<%= route.id %>">
-            <%= route.user_id %>
+            <%= route.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/routes/<%= route.id %>" class="btn btn-primary">
@@ -54,15 +54,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="">
-      </div>
-
       <!-- Label and input for cities_id -->
       <div class="form-group">
         <label for="cities_id" class="control-label">
@@ -70,6 +61,15 @@
         </label>
 
         <%= select_tag(:cities_id, options_from_collection_for_select(City.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for preference_id -->
+      <div class="form-group">
+        <label for="preference_id" class="control-label">
+          Preference
+        </label>
+
+        <%= select_tag(:preference_id, options_from_collection_for_select(Preference.all, :id, :taste), :class => "form-control") %>
       </div>
 
       <button class="btn btn-block btn-success">

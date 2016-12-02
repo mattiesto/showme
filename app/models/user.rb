@@ -3,9 +3,6 @@ class User < ApplicationRecord
 
   belongs_to :preferences
 
-  belongs_to :routes,
-             :foreign_key => "route_id"
-
   # Indirect associations
 
   # Validations

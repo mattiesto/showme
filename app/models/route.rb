@@ -1,8 +1,7 @@
 class Route < ApplicationRecord
   # Direct associations
 
-  has_many   :users,
-             :dependent => :destroy
+  belongs_to :preference
 
   belongs_to :cities
 

@@ -36,15 +36,6 @@
         <%= select_tag(:preferences_id, options_from_collection_for_select(Preference.all, :id, :taste, @user.preferences_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for route_id -->
-      <div class="form-group">
-        <label for="route_id" class="control-label">
-          Route
-        </label>
-
-        <%= select_tag(:route_id, options_from_collection_for_select(Route.all, :id, :user_id, @user.route_id), :class => "form-control") %>
-      </div>
-
       <button class="btn btn-warning">
         Update User
       </button>
