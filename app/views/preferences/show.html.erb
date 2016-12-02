@@ -11,6 +11,9 @@
       <dt>Style</dt>
       <dd><%= @preference.style %></dd>
 
+      <dt>Gender</dt>
+      <dd><%= @preference.gender %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -39,7 +42,7 @@
       <% @preference.users.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
-            <%= user.gender %>
+            <%= user.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/users/<%= user.id %>" class="btn btn-primary">
@@ -203,13 +206,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for cities_id -->
+      <!-- Label and input for city_id -->
       <div class="form-group">
-        <label for="cities_id" class="control-label">
-          Cities
+        <label for="city_id" class="control-label">
+          City
         </label>
 
-        <%= select_tag(:cities_id, options_from_collection_for_select(City.all, :id, :created_at), :class => "form-control") %>
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :created_at), :class => "form-control") %>
       </div>
 
       <!-- Label and input for preference_id -->

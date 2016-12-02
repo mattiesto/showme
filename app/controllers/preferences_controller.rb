@@ -27,6 +27,7 @@ class PreferencesController < ApplicationController
 
     @preference.taste = params[:taste]
     @preference.style = params[:style]
+    @preference.gender = params[:gender]
 
     save_status = @preference.save
 
@@ -55,6 +56,7 @@ class PreferencesController < ApplicationController
 
     @preference.taste = params[:taste]
     @preference.style = params[:style]
+    @preference.gender = params[:gender]
 
     save_status = @preference.save
 

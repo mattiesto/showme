@@ -21,7 +21,7 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new
 
-    @route.cities_id = params[:cities_id]
+    @route.city_id = params[:city_id]
     @route.preference_id = params[:preference_id]
 
     save_status = @route.save
@@ -49,7 +49,7 @@ class RoutesController < ApplicationController
   def update
     @route = Route.find(params[:id])
 
-    @route.cities_id = params[:cities_id]
+    @route.city_id = params[:city_id]
     @route.preference_id = params[:preference_id]
 
     save_status = @route.save
