@@ -18,22 +18,22 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
+      <!-- Label and input for city_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
+        <label for="city_id" class="control-label">
+          City
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @route.user_id %>">
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :created_at, @route.city_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for cities_id -->
+      <!-- Label and input for preference_id -->
       <div class="form-group">
-        <label for="cities_id" class="control-label">
-          Cities
+        <label for="preference_id" class="control-label">
+          Preference
         </label>
 
-        <%= select_tag(:cities_id, options_from_collection_for_select(City.all, :id, :created_at, @route.cities_id), :class => "form-control") %>
+        <%= select_tag(:preference_id, options_from_collection_for_select(Preference.all, :id, :taste, @route.preference_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

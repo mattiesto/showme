@@ -1,13 +1,12 @@
 class RoutesController < ApplicationController
   def index
     @q = Route.ransack(params[:q])
-    @routes = @q.result(:distinct => true).includes(:cities, :users).page(params[:page]).per(10)
+    @routes = @q.result(:distinct => true).includes(:cities, :preference).page(params[:page]).per(10)
 
     render("routes/index.html.erb")
   end
 
   def show
-    @user = User.new
     @route = Route.find(params[:id])
 
     render("routes/show.html.erb")
@@ -22,8 +21,8 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new
 
-    @route.user_id = params[:user_id]
-    @route.cities_id = params[:cities_id]
+    @route.city_id = params[:city_id]
+    @route.preference_id = params[:preference_id]
 
     save_status = @route.save
 
@@ -50,8 +49,8 @@ class RoutesController < ApplicationController
   def update
     @route = Route.find(params[:id])
 
-    @route.user_id = params[:user_id]
-    @route.cities_id = params[:cities_id]
+    @route.city_id = params[:city_id]
+    @route.preference_id = params[:preference_id]
 
     save_status = @route.save
 

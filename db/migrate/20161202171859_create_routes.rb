@@ -1,8 +1,8 @@
 class CreateRoutes < ActiveRecord::Migration
   def change
     create_table :routes do |t|
-      t.integer :user_id
-      t.integer :cities_id
+      t.integer :city_id
+      t.integer :preference_id
 
       t.timestamps
 

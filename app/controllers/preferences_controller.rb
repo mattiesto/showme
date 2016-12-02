@@ -1,12 +1,13 @@
 class PreferencesController < ApplicationController
   def index
     @q = Preference.ransack(params[:q])
-    @preferences = @q.result(:distinct => true).includes(:users, :restaurants, :shops).page(params[:page]).per(10)
+    @preferences = @q.result(:distinct => true).includes(:users, :restaurants, :shops, :routes).page(params[:page]).per(10)
 
     render("preferences/index.html.erb")
   end
 
   def show
+    @route = Route.new
     @shop = Shop.new
     @restaurant = Restaurant.new
     @user = User.new
@@ -26,6 +27,7 @@ class PreferencesController < ApplicationController
 
     @preference.taste = params[:taste]
     @preference.style = params[:style]
+    @preference.gender = params[:gender]
 
     save_status = @preference.save
 
@@ -54,6 +56,7 @@ class PreferencesController < ApplicationController
 
     @preference.taste = params[:taste]
     @preference.style = params[:style]
+    @preference.gender = params[:gender]
 
     save_status = @preference.save
 

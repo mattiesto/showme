@@ -9,18 +9,6 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-  <%= f.label :user_id, "User" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :user_id_gteq, :class => "form-control", :placeholder => "User greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :user_id_lteq, :class => "form-control", :placeholder => "User less than or equal to" %>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -101,8 +89,8 @@
       </script>
 
 <div class="form-group">
-      <%= f.label :users_gender_cont, "User gender contains" %>
-      <%= f.text_field :users_gender_cont, :class => "form-control", :placeholder => "User gender contains" %>
+      <%= f.label :preference_taste_cont, "Preference taste contains" %>
+      <%= f.text_field :preference_taste_cont, :class => "form-control", :placeholder => "Preference taste contains" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
@@ -119,18 +107,24 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
-        <th>Cities</th>
+        <th>City</th>
+        <th>Preference</th>
         <th>Actions</th>
       </tr>
 
       <% @routes.each do |route| %>
       <tr>
-        <td><%= route.user_id %></td>
         <td>
           <% if route.cities.present? %>
             <a href="/cities/<%= route.cities.id %>">
               <%= route.cities.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if route.preference.present? %>
+            <a href="/preferences/<%= route.preference.id %>">
+              <%= route.preference.taste %>
             </a>
           <% end %>
         </td>

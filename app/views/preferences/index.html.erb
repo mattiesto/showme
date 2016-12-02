@@ -14,6 +14,11 @@
   </div>
 
 <div class="form-group">
+    <%= f.label :gender_cont, "Gender contains" %>
+    <%= f.text_field :gender_cont, :class => "form-control", :placeholder => "Gender contains" %>
+  </div>
+
+<div class="form-group">
     <%= f.label :style_cont, "Style contains" %>
     <%= f.text_field :style_cont, :class => "form-control", :placeholder => "Style contains" %>
   </div>
@@ -59,9 +64,84 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :users_gender_cont, "User gender contains" %>
-      <%= f.text_field :users_gender_cont, :class => "form-control", :placeholder => "User gender contains" %>
-    </div>
+          <%= f.label :created_at, "User Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='usersgteqcreated_atPicker'>
+                  <%= f.text_field :users_created_at_gteq, :class => "form-control", :placeholder => "User Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='userslteqcreated_atPicker'>
+                  <%= f.text_field :users_created_at_lteq, :class => "form-control", :placeholder => "User Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#usersgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#userslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#usersgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#userslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#userslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#usersgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Route Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='routesgteqcreated_atPicker'>
+                  <%= f.text_field :routes_created_at_gteq, :class => "form-control", :placeholder => "Route Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='routeslteqcreated_atPicker'>
+                  <%= f.text_field :routes_created_at_lteq, :class => "form-control", :placeholder => "Route Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#routesgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routeslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routesgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routeslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#routeslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routesgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -79,6 +159,7 @@
       <tr>
         <th>Taste</th>
         <th>Style</th>
+        <th>Gender</th>
         <th>Actions</th>
       </tr>
 
@@ -86,6 +167,7 @@
       <tr>
         <td><%= preference.taste %></td>
         <td><%= preference.style %></td>
+        <td><%= preference.gender %></td>
         <td>
           <a href="/preferences/<%= preference.id %>" class="btn btn-primary">Show</a>
           <a href="/preferences/<%= preference.id %>/edit" class="btn btn-warning">Edit</a>

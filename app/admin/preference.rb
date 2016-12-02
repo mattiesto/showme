@@ -1,6 +1,6 @@
 ActiveAdmin.register Preference do
 
- permit_params :taste, :style
+ permit_params :taste, :style, :gender
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

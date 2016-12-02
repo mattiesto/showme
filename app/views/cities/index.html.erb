@@ -49,16 +49,44 @@
       </script>
 
         <div class="form-group">
-  <%= f.label :user_id, "Route User" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :routes_user_id_gteq, :class => "form-control", :placeholder => "Route User greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :routes_user_id_lteq, :class => "form-control", :placeholder => "Route User less than or equal to" %>
-    </div>
-  </div>
-</div>
+          <%= f.label :created_at, "Route Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='routesgteqcreated_atPicker'>
+                  <%= f.text_field :routes_created_at_gteq, :class => "form-control", :placeholder => "Route Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='routeslteqcreated_atPicker'>
+                  <%= f.text_field :routes_created_at_lteq, :class => "form-control", :placeholder => "Route Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#routesgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routeslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routesgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routeslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#routeslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routesgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
